@@ -33,13 +33,14 @@ class HomeScreen extends StatelessWidget {
           final launch = launches[index];
 
           return ListTile(
-            leading: Image.network(
-              launch.image,
-              width: 50,
+            leading: Hero(
+              tag: launch.id,
+              child: CircleAvatar(
+                radius: 30,
+                backgroundImage: NetworkImage(launch.image),
+              ),
             ),
             title: Text(launch.name),
-
-            // 👇 NAVEGACIÓN
             onTap: () {
               Navigator.push(
                 context,
