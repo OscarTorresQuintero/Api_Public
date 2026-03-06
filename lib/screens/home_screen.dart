@@ -32,23 +32,29 @@ class HomeScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final launch = launches[index];
 
-          return ListTile(
-            leading: Hero(
-              tag: launch.id,
-              child: CircleAvatar(
-                radius: 30,
-                backgroundImage: NetworkImage(launch.image),
-              ),
-            ),
-            title: Text(launch.name),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailScreen(launch: launch),
+          return Card(
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+
+            child: ListTile(
+              leading: Hero(
+                tag: launch.id,
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundImage: NetworkImage(launch.image),
                 ),
-              );
-            },
+              ),
+
+              title: Text(launch.name),
+
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailScreen(launch: launch),
+                  ),
+                );
+              },
+            ),
           );
         },
       ),
